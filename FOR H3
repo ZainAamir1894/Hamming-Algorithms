@@ -2,9 +2,10 @@
 public class Main{
 
 //Defining a function for the Hamming Bits (to be called later in main method)
- public static int getHammingBit(String parityScheme,int[] msg, int sum, int h3){
+ public static int getHammingBit(String parityScheme,int[] msg, int h3){
      
      //Printing the length of int[] msg
+   int sum = 0;
      System.out.println(msg.length);
      
      //i = 4 because h3 starts at index 4
@@ -53,7 +54,7 @@ public class Main{
          int h3 = 0;
          
          //calling the function to get h2
-         System.out.println(getHammingBit(parityScheme, msg, sum, h3));
+         System.out.println(getHammingBit(parityScheme, msg, h3));
      }
 
  }   
