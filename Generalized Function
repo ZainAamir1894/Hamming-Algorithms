@@ -1,0 +1,53 @@
+public class Main {
+
+    // Generalized Function
+    public static void calculateHammingBits(String parityScheme, int[] msg) {
+
+        System.out.println("Message length = " + msg.length);
+
+        // Find number of parity bits required (r)
+        int r = 0;
+        while (Math.pow(2, r) < msg.length + r + 1) {
+            r++;
+        }
+
+// 2,r means moving in square of 2
+// msg.length to stay in bounds 
+//+ r+1 so we can find p bits in the bounds of message bits
+
+        // Loop for each parity bit position (n = 1, 2, 4, 8)
+        for (int i = 0; i < r; i++) {
+            int parityPos = (int) Math.pow(2, i);
+            int sum = 0;
+
+            // Calculate sum for current parity bt
+            for (int j = 1; j <= msg.length; j++) {
+                if ((j & parityPos) != 0) {  // Check if this bit is covered
+                    sum += msg[j - 1];
+                }
+            }
+
+           
+            System.out.println("Sum for h" + parityPos + " = " + sum);
+
+            
+            int parityValue;
+            if (sum % 2 == 0)
+                parityValue = 1; // Even → 1
+            else
+                parityValue = 0; // Odd → 0
+
+            System.out.println("Parity (h" + parityPos + ") = " + parityValue);
+            System.out.println("----------------------");
+        }
+    }
+
+    // Main method
+    public static void main(String[] args) {
+
+        int[] msg = {1, 0, 1, 1, 0, 1, 0};
+        String parityScheme = "ODD"; // currently not used, but can be added for even/odd choice
+
+        calculateHammingBits(parityScheme, msg);
+    }
+}
