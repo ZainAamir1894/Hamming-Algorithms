@@ -38,9 +38,14 @@ public class Main{
         }
     }
     public static void main(String[] args) {
-        ArrayList<Integer> msg = new ArrayList<Integer>();
+        
+        List<Integer> msgList = (Arrays.asList(2,9,9,1,9,1,0,0,9,0,0,1));
 
-        msg.addAll(Arrays.asList(2,9,9,1,9,1,0,0,9,0,0,1));
+        int[] msg = new int[msgList.size()];
+
+        for(int i = 0; i< msgList.size(); i++){
+            msg[i] = msgList.get(i);
+        }
 
         String parityScheme = "ODD";
 
